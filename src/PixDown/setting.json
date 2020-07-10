@@ -1,0 +1,45 @@
+{
+    "//": "外部setting位置",
+    "SETTING_PATH": [
+        "./setting.json",
+        "./config/setting.json",
+        "./setting/setting.json"
+    ],
+    "//": "下载位置",
+    "DOWNLOAD_WORKS": ".\\download\\",
+    "//": "返回关注的人数上限",
+    "FOLLOW_PER_PAGE": 250,
+    "//": "返回用户作品上限",
+    "USER_WORKS_PER_PAGE": 300,
+    "//": "下载位置",
+    "DOWNLOAD_WORKS": "G:\\Pictures\\pixiv",
+    "//": "requests的pamas参数",
+    "//": {
+        "PAMAS": {
+            "proxies": {
+                "http": "http://127.0.0.1:7890",
+                "https": "http://127.0.0.1:7890"
+            }
+        }
+    },
+    "//": "获取json_dict重试连接的次数",
+    "JSON_RECONNECTION": 30,
+    "//": "下载重试连接的次数",
+    "DOWN_RECONNECTION": 5,
+    "//": "线程数",
+    "MAXWORKERS": 7,
+    "//": {
+        "logging级别": {
+            "10": "logging.DEBUG",
+            "20": "logging.INFO",
+            "30": "logging.WARNING",
+            "40": "logging.ERROR",
+            "50": "logging.CRITICAL"
+        }
+    },
+    "LOGGING_LEVEL": 0,
+    "//": "用户信息",
+    "user_id": "",
+    "user_password": "",
+    "//": ""
+}

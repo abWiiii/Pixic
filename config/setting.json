@@ -1,0 +1,15 @@
+{
+    "PixDownSetting": {
+        "DOWNLOAD_WORKS": "G:\\Pictures\\pixiv",
+        "PAMAS": {
+            "proxies": {
+                "http": "http://127.0.0.1:7890",
+                "https": "http://127.0.0.1:7890"
+            }
+        },
+        "MAXWORKERS": 7,
+        "LOGGING_LEVEL": 10,
+        "user_id": "763496481@qq.com",
+        "user_password": "SHIJIAN231lz"
+    }
+}

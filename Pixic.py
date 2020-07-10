@@ -2,14 +2,13 @@
 
 import os
 import sys
-from src.PixDown import pixdown
+from src.PixDown import api
 
 if sys.version[0] == "3":
     _src = os.listdir()
-    print(sys.path)
 
 else:
     sys.stdout.write("We need python version >= 3.5 !\a\n")
 
-pixiv = pixdown.PixDown()
-pixiv.downloadFollowWorks()
+pixiv = api.pixAPI()
+# pixiv.downloadFollowWorks()

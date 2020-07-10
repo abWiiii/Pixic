@@ -1,1 +1,4 @@
-__all__ = ['pixdown', 'setting', 'utils', 'pixdown.PixDown']
+__all__ = ['pixdown', 'utils', 'api', 'api.pixAPI']
+
+from .utils import applyConfig, CONFIG
+applyConfig()

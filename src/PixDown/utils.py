@@ -2,10 +2,60 @@ import threading
 import os
 import json
 
+CONFIG = {}
 
-def loadConfig(filePath: str, key: str):
+
+def applyConfig():
+    """ 应用配置 """
+    global CONFIG
+    CONFIG = {}
+    CONFIG = loadConfig()
+
+
+def setSettingPath(file: str):
+    """ 添加设置文件（json） """
+    global CONFIG
+    CONFIG['SETTING_PATH'].insert(0, file)
+    if os.path.isfile(file):
+        CONFIG = loadConfig()
+
+
+def loadConfig():
     """ 读取配置文件 """
-    pass
+
+    def readjson(path):
+        try:
+            with open(path, mode='r', encoding='utf-8') as file:
+                text = file.read()
+                text = json.loads(text)
+                return text
+        except Exception as e:
+            print(e)
+            return False
+
+    config = {}
+    path = os.path.join(os.path.dirname(__file__), "setting.json")
+    if os.path.isfile(path):
+        text = readjson(path)
+    else:
+        text = False
+    if text is False:
+        print("load setting Error")
+        os._exit(0)
+    config = text
+    if 'SETTING_PATH' in CONFIG:
+        config['SETTING_PATH'] = CONFIG['SETTING_PATH']
+
+    if 'SETTING_PATH' in text:
+        for path in text['SETTING_PATH']:
+            if os.path.isfile(path):
+                text = readjson(path)
+                if "PixDownSetting" in text:
+                    text = text["PixDownSetting"]
+                for key in text:
+                    config[key] = text[key]
+                break
+    return config
 
 
 def writefile(file: str, text):
@@ -21,7 +71,7 @@ def writefile(file: str, text):
 
 
 def setdir(basepath: str, *add_dir: str):
-    """ 若目录不存在则创建目录 """
+    """ 设置目录，若目录不存在则创建目录 """
     for dir in add_dir:
         basepath = os.path.join(basepath, dir)
     if not os.path.exists(basepath):
